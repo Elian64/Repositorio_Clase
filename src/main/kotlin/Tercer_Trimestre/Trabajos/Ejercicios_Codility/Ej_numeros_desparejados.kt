@@ -1,12 +1,10 @@
 package Tercer_Trimestre.Trabajos.Ejercicios_Codility
 
-import kotlin.math.absoluteValue
-
 // you can also use imports, for example:
 // import java.util.*;
 // you can write to stdout for debugging purposes, e.g.
 // System.out.println("this is a debug message");
-internal class Solution {
+/*internal class Solution {
 
     //A: IntArray?
     fun solution(A: MutableList<Int>): Int {
@@ -18,6 +16,34 @@ internal class Solution {
             if (A[i] != A[iterador.next()]) {
 
                 return A[i]
+            }
+
+        }
+        return 0
+    }
+}*/
+
+internal class Solution {
+    fun solution(A: MutableList<Int>?): Int {
+
+        var contBucle = 0
+        var contSiguiente = 1
+
+        for (i in contBucle until A!!.size) {
+
+            if (A[i] == null) {
+                return A[i]
+            } else {
+                if (A[i] != A[i + contSiguiente]) {
+                    contSiguiente++
+                    if (A[i] == 0) {
+                        contBucle
+                    }
+                } else {
+                    contBucle++
+
+                }
+
             }
 
         }

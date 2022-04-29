@@ -40,7 +40,7 @@ data class Tienda(val nombre: String, val clientes: List<Clientes>) {
 
     /* 4.2.8(2) - Cuenta la cantidad de veces que un producto se ha pedido.Ten en cuenta que un cliente puede
     pedir el pedido varias veces. Puedes usar Cliente.obtenerProductosPedidos() Verificar si el filter de repetido es correcto*/
-    fun obtenerNumeroVecesProductoPedido(producto: Producto): Int =
+    //fun obtenerNumeroVecesProductoPedido(producto: Producto): Int =
 
     // 4.2.9 - Implementa un método para que un map que almacene los clientes viviendo en una determinada ciudad. Puedes usar groupBy
     fun agrupaClientesPorCiudad(): Map<Ciudad, List<Clientes>> = clientes.groupBy { it.ciudad }
@@ -49,7 +49,7 @@ data class Tienda(val nombre: String, val clientes: List<Clientes>) {
 
     /* 4.2.7 - Implementa un método para que devuelva el conjunto de productos que han sido pedidos por TODOS los clientes.
        Puedes usar flatMap y fold y Puedes usar Cliente.obtenerProductosPedidos()*/
-    fun obtenerProductosPedidosPorTodos(): Set<Producto> = 
+    //fun obtenerProductosPedidosPorTodos(): Set<Producto> =
 
     // 4.2.10 - Implementa un método para que devuelva un mapa desde el nombre del cliente al cliente, puedes usar associateBy
     fun mapeaNombreACliente(): Map<String, Clientes> = clientes.associateBy { it.nombre }

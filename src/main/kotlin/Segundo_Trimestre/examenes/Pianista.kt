@@ -36,13 +36,13 @@ class Violinista(unaCancion: Array<Nota?> = arrayOfNulls<Nota?>(0)): Musico() {
 
 }
 
-class AlumnoMusica(): Interprete {
+/*class AlumnoMusica(): Interprete {
 
     override fun interpretar() =
 
 
 
-}
+}*/
 
 interface Interprete{
     fun interpretar()
