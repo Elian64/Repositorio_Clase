@@ -26,30 +26,50 @@ package Tercer_Trimestre.Trabajos.Ejercicios_Codility
 internal class Solution {
     fun solution(A: MutableList<Int>?): Int {
 
-        var contBucle = 0
-        var contSiguiente = 1
+        var listaNumerosRepetidos = mutableListOf<Int>()
 
-        for (i in contBucle until A!!.size) {
+        var contBucle1 = 0
+        var contBucle2 = 0
 
-            if (A[i] == null) {
-                return A[i]
-            } else {
-                if (A[i] != A[i + contSiguiente]) {
-                    contSiguiente++
-                    if (A[i] == 0) {
-                        contBucle
-                    }
-                } else {
-                    contBucle++
-
-                }
-
+        while(A!!.size!=contBucle1 && contBucle2 >= A!!.size)
+        { //var array = mutableListOf<Int>(9, 3, 9, 3, 9, 7, 9)
+            if(A[contBucle1]!=A[contBucle2+1] || A[contBucle1] !in listaNumerosRepetidos)
+                /*(A[contBucle1]!=A[contBucle2+1] || A[contBucle1] !in listaNumerosRepetidos)*/
+            {
+                contBucle2++
+            }
+            else
+            {
+                contBucle1++
+                //contBucle2=0
+                listaNumerosRepetidos.add(A[contBucle1])
             }
 
         }
-        return 0
+
+        return A[contBucle1]
     }
 }
+
+   /* fun solution(A: MutableList<Int>?): Int {
+
+        var contBucle1 = 0
+        var contBucle2 = 0
+
+        while(A!!.size!=contBucle1 && contBucle2 >= A!!.size)
+        {
+         if(A[contBucle1]!=A[contBucle2+1]) {
+             contBucle2++
+         }
+            else
+            {
+             contBucle1++
+            }
+
+        }
+        return A[contBucle1]
+    }*/
+
 
 fun main() {
 
