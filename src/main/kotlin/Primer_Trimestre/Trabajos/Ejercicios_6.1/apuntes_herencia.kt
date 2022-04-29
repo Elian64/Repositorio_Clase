@@ -1,8 +1,8 @@
-fun main(){
+/*fun main(){
 
 // var ejemplo= Child("nombre") error
 
-}
+}*/
 
 interface MyInterface {
     fun bar(): String // abstract por defecto
