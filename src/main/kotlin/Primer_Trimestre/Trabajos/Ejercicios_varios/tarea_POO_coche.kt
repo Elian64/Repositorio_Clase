@@ -1,3 +1,5 @@
+package Primer_Trimestre.Trabajos.Ejercicios_varios
+
 class Coche( // Faltan: Color por defecto (blanco)
     var marca: String, var matricula: String, var modelo: String,
     var puertas: Int, var caballos: Int, var velocidad: Int, var velocidadMax: Int, var color: String = "Blanco",

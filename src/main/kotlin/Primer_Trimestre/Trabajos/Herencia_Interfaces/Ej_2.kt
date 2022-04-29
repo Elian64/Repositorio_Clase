@@ -1,6 +1,6 @@
 import kotlin.random.Random
 
-fun main() {
+/*fun main() {
 
     var pistola1 = Pistola("Deagle", 10, 1, "Calibre-30", 100)
     var rifle1 = Rifle("AC130", 16, 2, "Calibre-50", 180)
@@ -37,7 +37,7 @@ fun main() {
         contador--
     }
 
-}
+}*/
 
 interface dispara {
     var nombre: String

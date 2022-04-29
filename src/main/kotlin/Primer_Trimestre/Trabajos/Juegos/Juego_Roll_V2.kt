@@ -209,7 +209,7 @@ class Lucha() {
 
     fun ataqueMonstruoContraDefensa() {
         println("el monstruo ataca!")
-        Recursos.vidaPersonaje -= MovimientosGigante().movimientosG / 2 //como hacerlo??
+        //Recursos.vidaPersonaje -= MovimientosGigante().movimientosG / 2 //como hacerlo??
         println(
             "el monstruo ha inflinjido ${Recursos.monstruoRandom.daño} puntos de daño," +
                     "ahora tu personaje tiene ${Recursos.vidaPersonaje} puntos de vida"
