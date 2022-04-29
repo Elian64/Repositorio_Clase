@@ -2,7 +2,7 @@
 el número de puertas y la matrícula. Crear el constructor del coche, así como los métodos estándar: ¿getters, setters? y toString.
 En el programa principal, instancia varios coches, muestra su información, cambia el color a algunos de ellos y vuelve a mostrarlos por pantalla.*/
 
-class Coche(
+class coche(
     var color: String, var marca: String, var modelo: String, var num_caballos: Int,
     var num_puertas: Int, var matricula: String
 ) {
@@ -20,14 +20,14 @@ class Coche(
 
 fun main() {
 
-    var coche1 = Coche("Rojo", "Ford", "Fiesta", 100, 4, "567890FD")
-    var coche2 = Coche("Verde", "Ferrari", "Portofino", 200, 2, "734936RN")
+    //var coche1 = Coche("Rojo", "Ford", "Fiesta", 100, 4, "567890FD")
+    //var coche2 = Coche("Verde", "Ferrari", "Portofino", 200, 2, "734936RN")
 
 
-    println(coche1.cambioColor("Naranja"))
-    println(coche1)
+    /*println(coche1.cambioColor("Naranja"))
+    println(coche1)*/
 
-    println(coche2.cambioColor("Gris"))
-    println(coche2)
+    /*println(coche2.cambioColor("Gris"))
+    println(coche2)*/
 
 }

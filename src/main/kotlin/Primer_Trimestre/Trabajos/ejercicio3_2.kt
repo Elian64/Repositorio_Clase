@@ -26,7 +26,7 @@ Por último, mostrar la información de cada objeto.
 
 Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.*/
 
-class Persona(
+class persona(
     private var nombre: String = "",
     private var edad: Int = 0,
     private var DNI: String,
