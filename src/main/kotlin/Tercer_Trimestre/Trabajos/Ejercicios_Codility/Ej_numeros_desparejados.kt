@@ -1,9 +1,5 @@
 package Tercer_Trimestre.Trabajos.Ejercicios_Codility
 
-// you can also use imports, for example:
-// import java.util.*;
-// you can write to stdout for debugging purposes, e.g.
-// System.out.println("this is a debug message");
 /*internal class Solution {
 
     //A: IntArray?
@@ -24,7 +20,7 @@ package Tercer_Trimestre.Trabajos.Ejercicios_Codility
 }*/
 
 internal class Solution {
-    fun solution(A: MutableList<Int>?): Int {
+    /*fun solution(A: MutableList<Int>?): Int {
 
         var listaNumerosRepetidos = mutableListOf<Int>()
 
@@ -48,27 +44,37 @@ internal class Solution {
         }
 
         return A[contBucle1]
-    }
-}
-
-   /* fun solution(A: MutableList<Int>?): Int {
-
-        var contBucle1 = 0
-        var contBucle2 = 0
-
-        while(A!!.size!=contBucle1 && contBucle2 >= A!!.size)
-        {
-         if(A[contBucle1]!=A[contBucle2+1]) {
-             contBucle2++
-         }
-            else
-            {
-             contBucle1++
-            }
-
-        }
-        return A[contBucle1]
     }*/
+
+    fun solution(A: MutableList<Int>?): Int {
+
+        var contIrerador = 1
+        var numero = 0
+
+        for (i in 0 until A!!.size) {
+
+            try {
+
+                if (A[i] != A[i + contIrerador] && A[i] != A[i - contIrerador]) {
+                    contIrerador++
+                    i == 0
+                }
+                contIrerador = 1
+                i == i + 1
+
+                if (contIrerador >= A!!.size-1) numero=A[i] /*return A[i]*/
+
+            } catch (e: IndexOutOfBoundsException) {
+                "rango no valido"
+            }
+        }
+
+        return numero
+
+
+    }
+
+}
 
 
 fun main() {
