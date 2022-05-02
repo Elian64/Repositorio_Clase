@@ -1,29 +1,22 @@
 package Tercer_Trimestre.Trabajos
 
-import java.util.Collections
+import java.util.*
 
-fun main(){
+fun pasoNumeroBinario(N: Int): List<Int> {
 
-    // println(solution(1041))
-    println(pasoNumeroBinario(4))
-}
+    var binario = N
+    var numeroBinario = arrayListOf<Int>()
+    var cociente = N
 
-fun pasoNumeroBinario(N: Int):ArrayList<Int> {
-//usar reversed
-    var numeroBinario = ArrayList<Int>(N.toString().length)
-    var numeroAdivir = N
-    for (i in 0..N) {
-
-        if (N / 2 != 1 || N / 2 != 0) {
-            return numeroBinario
-        } else {
-            numeroBinario[i] = numeroAdivir % 2
-            numeroAdivir = numeroBinario[i]
-        }
+    while (binario > 1) {
+        numeroBinario.add(binario % 2)
+        binario = (binario - binario % 2) / 2
 
     }
+    numeroBinario.add(binario)
 
-    return numeroBinario
+    return numeroBinario.reversed()
+
 }
 
 fun solution(N: Int): Int {
@@ -57,4 +50,9 @@ fun solution(N: Int): Int {
     }
 
     return Collections.max(listaGrupoDeCeros)
+}
+
+fun main() {
+
+    println(pasoNumeroBinario(4))
 }
