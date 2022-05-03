@@ -1,9 +1,10 @@
 package Tercer_Trimestre.Trabajos
 
 import java.util.*
+import kotlin.math.absoluteValue
 
 
-fun pasoNumeroBinario(N: Int): Int {
+fun pasoNumeroBinario(N: Int): List<Int> {
 
     var binario = N
     var numeroBinario = arrayListOf<Int>()
@@ -15,35 +16,38 @@ fun pasoNumeroBinario(N: Int): Int {
     }
     numeroBinario.add(binario)
 
-    var binarioFinal = numeroBinario.toString().reversed().toInt() //mirar como sacar solo los valores
-
-    return binarioFinal
+    return numeroBinario.reversed()
 
 }
 
-fun solution(N: Int): Int {
+fun solution(N: Int): String {
 
-    var binario = pasoNumeroBinario(N).toString()
+    var binario = pasoNumeroBinario(N)
     var contadorCeros = 0
     var contadorUnos = 0
     var listaContadorCeros = ArrayList<Int>()
 
-    for (i in 0..N) {
-        if (binario.substring(i) == "0") {
-            while(binario.substring(i+1)!="1") {
-                contadorCeros++
-                listaContadorCeros[i]=contadorCeros
+
+       for (i in binario.indices) {
+            when {
+                binario[i] == 0 -> {
+                    contadorCeros++
+                    if (binario.get(i+1) !=0) listaContadorCeros.add(contadorCeros)
+                }
+
+                binario[i] == 1 -> {
+                    contadorUnos++
+                }
+
             }
-        } else {
-            contadorUnos++
         }
-    }
 
+    return "lista de ceros= $listaContadorCeros\n grupo mayor de ceros= ${listaContadorCeros[listaContadorCeros.size-1] - listaContadorCeros[listaContadorCeros.size-2]}"
 
-    return 0
 }
 
 fun main() {
 
-    println(pasoNumeroBinario(4))
+    println(pasoNumeroBinario(4357))
+    println(solution(4357))
 }
