@@ -2,11 +2,11 @@ package Tercer_Trimestre.Trabajos
 
 import java.util.*
 
-fun pasoNumeroBinario(N: Int): List<Int> {
+
+fun pasoNumeroBinario(N: Int): Int {
 
     var binario = N
     var numeroBinario = arrayListOf<Int>()
-    var cociente = N
 
     while (binario > 1) {
         numeroBinario.add(binario % 2)
@@ -15,41 +15,32 @@ fun pasoNumeroBinario(N: Int): List<Int> {
     }
     numeroBinario.add(binario)
 
-    return numeroBinario.reversed()
+    var binarioFinal = numeroBinario.toString().reversed().toInt() //mirar como sacar solo los valores
+
+    return binarioFinal
 
 }
 
 fun solution(N: Int): Int {
 
-    var numBinario=pasoNumeroBinario(N)
-    var numeroUtilizable = numBinario.toString()
-    var posicionNumeroCeros= mutableListOf<Int>()
-    var numeroDeCeros=0
-    var listaGrupoDeCeros = mutableListOf<Int>()
+    var binario = pasoNumeroBinario(N).toString()
+    var contadorCeros = 0
+    var contadorUnos = 0
+    var listaContadorCeros = ArrayList<Int>()
 
-    if(N !in 1..2147483647 && N!=null)
-    {
-        "Número no válido"
-    }
-    else
-    {
-
-
-        for(i in 0..numeroUtilizable.length){
-
-            for(i in 0..numeroUtilizable.length){
-                if(numeroUtilizable.substring(i)=="0" && (numeroUtilizable.substring(i-1)=="1" || numeroUtilizable.substring(i+1)=="1") )
-                {
-                    numeroDeCeros++
-
-                }
-                posicionNumeroCeros[i]=numeroDeCeros
+    for (i in 0..N) {
+        if (binario.substring(i) == "0") {
+            while(binario.substring(i+1)!="1") {
+                contadorCeros++
+                listaContadorCeros[i]=contadorCeros
             }
-            listaGrupoDeCeros[i]= Collections.max(posicionNumeroCeros)
+        } else {
+            contadorUnos++
         }
     }
 
-    return Collections.max(listaGrupoDeCeros)
+
+    return 0
 }
 
 fun main() {
