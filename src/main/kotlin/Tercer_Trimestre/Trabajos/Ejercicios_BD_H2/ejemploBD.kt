@@ -39,22 +39,60 @@ class ConnectionBuilder {
     }
 
 }
+class Inventario(private val conexion: Connection)
+{
+    companion object {
+        private const val SCHEMA = "default"
+        private const val TABLE = "INVENTARIO"
+        private const val UPDATE_PRECIO = "update INVENTARIO set PRECIO=?"
+
+    }
+
+    private fun cambiaPrecio15()
+    {
+
+    }
+
+    /*fun updateBook(book: MyBook): Boolean {
+        var rowUpdated = false
+        val sqldate = java.sql.Date(book.publish_date.time)
+        try {
+            c.prepareStatement(UPDATE_BOOKS_SQL).use { st ->
+                st.setString(1, book.author)
+                st.setString(2, book.title)
+                st.setString(3, book.genre)
+                st.setFloat(4, book.price)
+                st.setDate(5, sqldate)
+                st.setString(6, book.description)
+                st.setInt(7,book.id)
+                rowUpdated = st.executeUpdate() > 0
+            }
+            //Commit the change to the database
+            c.commit()
+        } catch (e: SQLException) {
+            printSQLException(e)
+        }
+        return rowUpdated
+    }*/
+
+
+}
 
 class Tienda(private val conexion: Connection) {
 
     companion object {
         private const val SCHEMA = "default"
         private const val TABLE = "TIENDA"
-        private const val TRUNCATE_TABLE_CATALOG_SQL = "TRUNCATE TABLE TIENDA"
+        private const val TRUNCATE_TABLE_TIENDA_SQL = "TRUNCATE TABLE TIENDA"
         private const val CREATE_TABLE_CATALOG_SQL =
             "CREATE TABLE TIENDAS (ID_TIENDA NUMBER(10,0) CONSTRAINT PK_ID_TIENDA PRIMARY KEY, NOMBRE_TIENDA VARCHAR2(40), DIRECCION_TIENDA VARCHAR2(200)"
-        private const val INSERT_BOOK_SQL =
+        private const val INSERT_ARTICULO_SQL =
             "INSERT INTO TIENDA" + "  (ID_TIENDA, PK_ID_TIENDA, NOMBRE_TIENDA, DIRECCION_TIENDA) VALUES " + " (?, ?, ?, ?);"
-        private const val SELECT_CATALOG_BY_ID =
+        private const val SELECT_TIENDA_BY_ID =
             "select  ID_TIENDA, PK_ID_TIENDA, NOMBRE_TIENDA, DIRECCION_TIENDA from TIENDA where ID_TIENDA =?"
-        private const val SELECT_ALL_BOOKS = "select * from TIENDA"
-        private const val DELETE_BOOKS_SQL = "delete from TIENDA where ID_TIENDA = ?;"
-        private const val UPDATE_BOOKS_SQL =
+        private const val SELECT_ALL_ARTICULOS = "select * from TIENDA"
+        private const val DELETE_TIENDA_SQL = "delete from TIENDA where ID_TIENDA = ?;"
+        private const val UPDATE_TIENDA_SQL =
             "update TIENDA set ID_TIENDA = ?,PK_ID_TIENDA = ?, NOMBRE_TIENDA =?, DIRECCION_TIENDA = ?"
     }
 
@@ -63,15 +101,15 @@ class Tienda(private val conexion: Connection) {
         val metadatos = conexion.metaData
         val rs = metadatos.getTables(null, Tienda.SCHEMA, Tienda.TABLE, null)
 
-        //if (!rs.next()) createTable() else truncateTable()
+        if (!rs.next()) createTable() else truncateTable()
     }
 
     private fun truncateTable() {
-        println(Tienda.TRUNCATE_TABLE_CATALOG_SQL)
+        println(Tienda.TRUNCATE_TABLE_TIENDA_SQL)
         // try-with-resource statement will auto close the connection.
         try {
-            conexion.createStatement().use { st ->
-                st.execute(Tienda.TRUNCATE_TABLE_CATALOG_SQL)
+            conexion.createStatement().use { it ->
+                it.execute(Tienda.TRUNCATE_TABLE_TIENDA_SQL)
             }
             //Commit the change to the database
             conexion.commit()
