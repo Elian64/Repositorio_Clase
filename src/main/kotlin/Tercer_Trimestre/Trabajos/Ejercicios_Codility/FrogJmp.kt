@@ -5,12 +5,13 @@ fun solution(X: Int, Y: Int, D: Int): Int {
     var posic_actual = X
 
     while (Y > posic_actual) {
-        posic_actual = +D
+        posic_actual += D
         num_saltos++
-
     }
 
+
     return num_saltos
+
 
 }
 
