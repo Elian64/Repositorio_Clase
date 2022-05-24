@@ -9,17 +9,22 @@ que es el número de veces que debes multiplicar los dígitos numhasta llegar a 
 
 */
 
-fun persistence(num: Int) : Int {
+fun persistence(num: Int): Int {
 
-    var palabra = num.toString()
-    var numeros = mutableListOf<Char>()
+    var numeroAletra = num.toString()
+    var numCifras = num.toString().length
+    var resultado = 1
 
-    for(i in palabra) numeros.add(i)
+    for (i in 0 until numCifras)
+    {
+        if(numeroAletra[i+1].toInt() in numeroAletra.indices) resultado *= numeroAletra[i].toInt()
+        break
+    }
 
-    return 0
+    return resultado
 }
 
-fun main()
-{
+fun main() {
+    println(persistence(999))
 
 }

@@ -2,7 +2,7 @@ package Tercer_Trimestre.Trabajos.Ejercicios_Codility
 
 import org.h2.index.Index
 
-fun solutionn(H: IntArray): Int {
+/*fun solutionn(H: IntArray): Int {
 
     var contCuad = 0
 
@@ -17,12 +17,12 @@ fun solutionn(H: IntArray): Int {
         }
 
     return contCuad
-}
+}*/
 
 fun main() {
     var lista: IntArray = intArrayOf(8, 8, 5, 7, 9, 8, 7, 4, 8)
 
-    println(solutionn(lista))
+    //println(solutionn(lista))
 
 
 }
