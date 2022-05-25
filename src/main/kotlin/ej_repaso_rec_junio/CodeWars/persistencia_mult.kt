@@ -1,5 +1,7 @@
 package ej_repaso_rec_junio.CodeWars
 
+import kotlin.math.absoluteValue
+
 /* Escribe una función, persistence, que tome un parámetro positivo numy devuelva su persistencia multiplicativa,
 que es el número de veces que debes multiplicar los dígitos numhasta llegar a un solo dígito.
 
@@ -11,17 +13,22 @@ que es el número de veces que debes multiplicar los dígitos numhasta llegar a 
 
 fun persistence(num: Int): Int {
 
-    var numeroAletra = num.toString()
-    var numCifras = num.toString().length
     var resultado = 1
+    var cont = 0
+    var contBucle = 0
+    var arrayResultados = mutableListOf<Int>()
+    arrayResultados.add(num)
 
-    for (i in 0 until numCifras)
-    {
-        if(numeroAletra[i+1].toInt() in numeroAletra.indices) resultado *= numeroAletra[i].toInt()
-        break
+    while (arrayResultados[contBucle].toString().length > 1) {
+        for (i in arrayResultados[contBucle].toString()) resultado *= i.digitToInt()
+
+        arrayResultados.add(resultado)
+        cont++
+        contBucle++
+        resultado = 1
     }
 
-    return resultado
+    return cont
 }
 
 fun main() {
