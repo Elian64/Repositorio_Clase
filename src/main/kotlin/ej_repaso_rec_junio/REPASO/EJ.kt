@@ -1,6 +1,6 @@
 package ej_repaso_rec_junio.REPASO
 
-fun main()
+/*fun main()
 {
 
     var myMap: Map<String, Int> = mapOf()
@@ -10,4 +10,4 @@ fun main()
     myMap["Ana"] = 7
 
 
-}
+}*/
